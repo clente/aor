@@ -14,6 +14,7 @@ Imports:
     lubridate,
     purrr,
     readr,
+    snakecase,
     stringr,
     xml2
 Encoding: UTF-8

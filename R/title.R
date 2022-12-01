@@ -27,7 +27,6 @@ title_fetch <- function(date = Sys.Date()) {
   cli::cli_alert_success("Title is on the clipboard.")
 
   invisible(title)
-
 }
 
 #' Utility function to fetch the title that [title_fetch()] outputs
