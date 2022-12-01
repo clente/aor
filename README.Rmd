@@ -1,0 +1,94 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# aor
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+The goal of aor is to help useRs solve the [Advent of
+Code](https://adventofcode.com/) in R! It has some helper functions to fetch
+puzzles and inputs as quickly as possible.
+
+## Installation
+
+You can install the development version of aor from [GitHub](https://github.com/) with:
+
+``` r
+# install.packages("devtools")
+devtools::install_github("clente/aor")
+```
+
+## Example
+
+The basic usage of aor revolves around `day_start()` and `day_continue()`. By
+default, both functions fetch the **current day's puzzle**, but I'll use
+`2022-12-01` as the example here:
+
+```{r}
+# Start the puzzle for 2022-12-01 in the aoc2022/ directory
+aor::day_start("2022-12-01", "aoc2022/")
+
+# Files created
+fs::dir_tree("aoc2022/")
+```
+
+Here is what `aoc2022/01_calorie_counting/puzzle.R` looks like (note that I'm
+omitting most of the question so that the output is not super long):
+
+```{r, results='asis', echo=FALSE}
+txt <- readr::read_lines("aoc2022/01_calorie_counting/puzzle.R")
+cat(stringr::str_c(
+  "\`\`\`r",
+  stringr::str_c(txt[1:8], collapse = "\n"),
+  "# ...",
+  stringr::str_c(txt[63:71], collapse = "\n"),
+  "\`\`\`",
+  sep = "\n"
+))
+```
+
+Once you solve part 1 of the puzzle, you can run the last line of the template
+to automatically fetch part 2 into the same file!
+
+```{r}
+aor::day_continue("2022-12-01", "aoc2022/01_calorie_counting/puzzle.R")
+```
+
+And here is what the file looks like after runing `day_continue()` (again
+omitting most of the question):
+
+```{r, results='asis', echo=FALSE}
+txt <- readr::read_lines("aoc2022/01_calorie_counting/puzzle.R")
+cat(stringr::str_c(
+  "\`\`\`r",
+  stringr::str_c(txt[1:8], collapse = "\n"),
+  "# ...",
+  stringr::str_c(txt[63:78], collapse = "\n"),
+  "# ...",
+  stringr::str_c(txt[88:90], collapse = "\n"),
+  "\`\`\`",
+  sep = "\n"
+))
+```
+
+```{r, echo=FALSE}
+fs::file_delete("aoc2022/01_calorie_counting/puzzle.R")
+fs::file_delete("aoc2022/01_calorie_counting/input.txt")
+fs::dir_delete("aoc2022/01_calorie_counting/")
+fs::dir_delete("aoc2022/")
+```
+
+Good luck! See you on the other side!
