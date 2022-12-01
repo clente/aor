@@ -14,7 +14,7 @@
 day_start <- function(date = Sys.Date(), path = "./") {
 
   # Stop if the date is invalid
-  if (lubridate::month(date) != 12 || lubridate::month(date) > 25) {
+  if (lubridate::month(date) != 12 || lubridate::day(date) > 25) {
     stop("Invalid date.")
   }
 
@@ -82,7 +82,7 @@ day_start <- function(date = Sys.Date(), path = "./") {
 day_continue <- function(date, path) {
 
   # Stop if the date is invalid
-  if (lubridate::month(date) != 12 || lubridate::month(date) > 25) {
+  if (lubridate::month(date) != 12 || lubridate::day(date) > 25) {
     stop("Invalid date.")
   }
 

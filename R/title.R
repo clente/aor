@@ -11,7 +11,7 @@
 title_fetch <- function(date = Sys.Date()) {
 
   # Stop if the date is invalid
-  if (lubridate::month(date) != 12 || lubridate::month(date) > 25) {
+  if (lubridate::month(date) != 12 || lubridate::day(date) > 25) {
     stop("Invalid date.")
   }
 
