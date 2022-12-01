@@ -2,3 +2,4 @@
 
 export(fetch_input)
 export(fetch_puzzle)
+export(fetch_title)
