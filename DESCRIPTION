@@ -6,6 +6,16 @@ Authors@R:
            comment = c(ORCID = "0000-0001-8473-069X"))
 Description: A lightweight toolkit to help solve the Advent of Code in R.
 License: MIT + file LICENSE
+Imports:
+    cli,
+    clipr,
+    fs,
+    httr,
+    lubridate,
+    purrr,
+    readr,
+    stringr,
+    xml2
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.2
