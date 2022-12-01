@@ -51,7 +51,7 @@ day_start <- function(date = Sys.Date(), path = "./") {
     stringr::str_c('input <- "', f_input, '"'),
     "",
     "# Once you're done with part 1, run the following line to fetch part 2:",
-    stringr::str_c('day_continue("', as.character(date), '", "', f_puzzle, '")')
+    stringr::str_c('aor::day_continue("', as.character(date), '", "', f_puzzle, '")')
   )
 
   readr::write_lines(puzzle, f_puzzle)
