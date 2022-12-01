@@ -8,7 +8,7 @@
 #' @return A character string.
 #'
 #' @export
-fetch_title <- function(date = Sys.Date()) {
+title_fetch <- function(date = Sys.Date()) {
 
   # Stop if the date is invalid
   if (lubridate::month(date) != 12 || lubridate::month(date) > 25) {
@@ -16,7 +16,7 @@ fetch_title <- function(date = Sys.Date()) {
   }
 
   # Fetch title as a character string
-  title <- fetch_title_text(date)
+  title <- title_fetch_text(date)
 
   # Show output to user
   cat(title, sep = "\n")
@@ -30,10 +30,10 @@ fetch_title <- function(date = Sys.Date()) {
 
 }
 
-#' Utility function to fetch the title that [fetch_title()] outputs
+#' Utility function to fetch the title that [title_fetch()] outputs
 #'
 #' @noRd
-fetch_title_text <- function(date) {
+title_fetch_text <- function(date) {
 
   # Fetch H2 of the page
   "https://adventofcode.com/" |>

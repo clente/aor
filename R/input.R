@@ -1,4 +1,3 @@
-
 #' Fetch the input of a puzzle from the Advent of Code
 #'
 #' Fetch the input of a puzzle from the Advent of Code given the day it was
@@ -16,10 +15,10 @@
 #' @return The input of the puzzle.
 #'
 #' @export
-fetch_input <- function(date = Sys.Date()) {
+input_fetch <- function(date = Sys.Date()) {
 
   # Fetch text as a character string
-  input <- fetch_input_text(date)
+  input <- input_fetch_text(date)
 
   # Show output to user
   cat(input, sep = "\n")
@@ -32,10 +31,10 @@ fetch_input <- function(date = Sys.Date()) {
   invisible(input)
 }
 
-#' Utility function to fetch the text that [fetch_input()] outputs
+#' Utility function to fetch the text that [input_fetch()] outputs
 #'
 #' @noRd
-fetch_input_text <- function(date) {
+input_fetch_text <- function(date) {
 
   # Stop if the date is invalid
   if (lubridate::month(date) != 12 || lubridate::month(date) > 25) {

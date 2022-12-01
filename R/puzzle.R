@@ -22,10 +22,10 @@
 #' @return Text of the puzzle.
 #'
 #' @export
-fetch_puzzle <- function(part = 1, date = Sys.Date()) {
+puzzle_fetch <- function(part = 1, date = Sys.Date()) {
 
   # Fetch text as a character string
-  puzzle <- fetch_puzzle_text(part, date)
+  puzzle <- puzzle_fetch_text(part, date)
 
   # Show output to user
   cat(puzzle, sep = "\n")
@@ -38,10 +38,10 @@ fetch_puzzle <- function(part = 1, date = Sys.Date()) {
   invisible(puzzle)
 }
 
-#' Utility function to fetch the text that [fetch_puzzle()] outputs
+#' Utility function to fetch the text that [puzzle_fetch()] outputs
 #'
 #' @noRd
-fetch_puzzle_text <- function(part, date) {
+puzzle_fetch_text <- function(part, date) {
 
   # Stop if the part is invalid
   if (!part %in% c(1, 2)) {
