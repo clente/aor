@@ -77,6 +77,7 @@ puzzle_fetch_text <- function(part, date) {
     base::as.character() |>
     stringr::str_c(collapse = "\n") |>
     stringr::str_replace_all('<span .*?"(.*?)">(.*?)</span>', "\\2^[\\1]") |>
+    stringr::str_remove_all('target="_blank"') |>
     readr::write_file(temp)
 
   # Format text
