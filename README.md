@@ -24,6 +24,23 @@ You can install the development version of aor from
 devtools::install_github("clente/aor")
 ```
 
+## Supply Session Cookie
+You'll need to obtain and supply your AOC session cookie to get the right puzzle inputs.
+
+### Obtain Session Cookie
+1.  Navigate to any AOC page.
+2.  Right-click anywhere and select 'inspect element'
+3.  Click the Network tab, then All
+4.  Reload the page
+5.  Select any object from the left, then click Headers
+6.  Your session cookie is the long hexadecimal string after `Cookie: session=`. Copy this
+
+### Supply the Session Cookie
+In R, run this command:
+``` R
+Sys.setenv('AOC_SESSION' = 'your_session_cookie')
+```
+
 ## Example
 
 The basic usage of aor revolves around `day_start()` and
