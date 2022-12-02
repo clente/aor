@@ -37,7 +37,9 @@ In order to find your session cookie, do the following:
 3.  Select the Network tab.
 4.  Reload the page.
 5.  Click on the first request that shows up.
-6.  Copy the long string after `Cookie: session=`.
+6.  In Request Headers, copy the long string after `session=`.
+
+<img src="man/figures/authentication.webp" width="100%" />
 
 Once you have your session cookie, add it to an environment variable
 called `AOC_SESSION`. You can do this by running the following command:
