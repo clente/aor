@@ -24,21 +24,36 @@ You can install the development version of aor from
 devtools::install_github("clente/aor")
 ```
 
-## Supply Session Cookie
-You'll need to obtain and supply your AOC session cookie to get the right puzzle inputs.
+## Authentication
 
-### Obtain Session Cookie
-1.  Navigate to any AOC page.
-2.  Right-click anywhere and select 'inspect element'
-3.  Click the Network tab, then All
-4.  Reload the page
-5.  Select any object from the left, then click Headers
-6.  Your session cookie is the long hexadecimal string after `Cookie: session=`. Copy this
+Before using aor, you’ll probably want to save your Advent of Code
+session cookie as an environment variable; this is necessary for aor to
+fetch the 2nd part of puzzles.
 
-### Supply the Session Cookie
-In R, run this command:
-``` R
-Sys.setenv('AOC_SESSION' = 'your_session_cookie')
+In order to find your session cookie, do the following:
+
+1.  Navigate to <https://adventofcode.com/>.
+2.  Press `F12` to open your browser’s developer tools.
+3.  Select the Network tab.
+4.  Reload the page.
+5.  Click on the first request that shows up.
+6.  Copy the long string after `Cookie: session=`.
+
+Once you have your session cookie, add it to an environment variable
+called `AOC_SESSION`. You can do this by running the following command:
+
+``` r
+# Add your cookie to .Renviron
+readr::write_lines('AOC_SESSION="YOUR_COOKIE"', "~/.Renviron", append = TRUE)
+```
+
+If this doesn’t work even after restarting R, your can force your
+session cookie directly with the following command (just remember to
+**never upload your cookie to GitHub**):
+
+``` r
+# Set the environment variable directly
+Sys.setenv("AOC_SESSION" = "YOUR_COOKIE")
 ```
 
 ## Example
