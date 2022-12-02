@@ -1,26 +1,20 @@
-#' Fetch a puzzle from the Advent of Code
+#' Fetch an Advent of Code puzzle
 #'
+#' @description
 #' Fetch (part of) a puzzle from the Advent of Code given the day it was
 #' published. This function automatically transforms the text of the puzzle into
 #' an R multi-line comment and writes it to the clipboard.
 #'
-#' # Tooltips
+#' See **Details** for more information on how this package converts HTML into
+#' Markdown and how to sign in to your AoC account.
 #'
-#' Hidden tooltips (which only show up on the website when one hovers over the
-#' text) are transformed into inline footnotes on the final output.
+#' @inheritSection day_start Conversion to Markdown
+#' @inheritSection day_start Authentication
 #'
-#' # Authentication
+#' @param part Part to fetch (either 1 or 2).
+#' @inheritParams day_start
 #'
-#' This function is capable of using an authenticated session to fetch the 2nd
-#' part of a puzzle after the user has answered the 1st part. For this to work,
-#' the user must supply their session cookie as an environment variable called
-#' `AOC_SESSION`.
-#'
-#' @param part Part to fetch (either 1 or 2). See Details for more information.
-#' @param date Day to fetch.
-#'
-#' @return Text of the puzzle.
-#'
+#' @seealso [day_start()]
 #' @export
 puzzle_fetch <- function(part = 1, date = Sys.Date()) {
 

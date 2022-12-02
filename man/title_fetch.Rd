@@ -2,17 +2,17 @@
 % Please edit documentation in R/title.R
 \name{title_fetch}
 \alias{title_fetch}
-\title{Fetch the title of a puzzle from the Advent of Code}
+\title{Fetch an Advent of Code puzzle's title}
 \usage{
 title_fetch(date = Sys.Date())
 }
 \arguments{
 \item{date}{Day to fetch.}
 }
-\value{
-A character string.
-}
 \description{
 Fetch the title of a puzzle from the Advent of Code given the day it was
-published.
+published. This function automatically writes the title to the clipboard.
+}
+\seealso{
+\code{\link[=day_start]{day_start()}}
 }

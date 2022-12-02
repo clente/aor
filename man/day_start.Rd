@@ -2,23 +2,50 @@
 % Please edit documentation in R/day.R
 \name{day_start}
 \alias{day_start}
-\title{Start solving a puzzle from the Advent of Code}
+\alias{day_continue}
+\title{Create template for an Advent of Code puzzle}
 \usage{
 day_start(date = Sys.Date(), path = "./")
+
+day_continue(date = Sys.Date(), file)
 }
 \arguments{
 \item{date}{Day to fetch.}
 
-\item{path}{Where to create directory.}
-}
-\value{
-Path to the created directory.
+\item{path}{Directory where to write the template.}
+
+\item{file}{Path to \code{puzzle.R} file created by \code{\link[=day_start]{day_start()}}}
 }
 \description{
-Create a directory with everything the user needs to start solving a puzzle
-from the Advent of Code. Once the 1st part is done, \code{\link[=day_continue]{day_continue()}} appends
-the 2nd part to the file created by this function.
+\code{\link[=day_start]{day_start()}} creates a directory with everything needed to start solving a
+puzzle from the Advent of Code. Once the user submits part 1 of the puzzle,
+\code{\link[=day_continue]{day_continue()}} can append part 2 to the same file.
+
+See \strong{Details} for more information on how this package converts HTML to
+Markdown and how to sign in to your AoC account.
 }
-\seealso{
-\code{\link[=day_continue]{day_continue()}}
+\section{Conversion to Markdown}{
+Conversion from HTML to Markdown is made with \href{https://pandoc.org/}{Pandoc}.
+If you use RStudio, you most likely already have Pandoc installed; otherwise,
+make sure to install it before using this function.
+
+Pandoc is really good, but it's not perfect. I have chosen to, therefore,
+implement a few aspects of the conversion manually:
+\itemize{
+\item Hidden tooltips (which only show up on the website when one hovers over the
+text) are converted into inline footnotes on the final output.
+\item URLs that link to external sites have their \code{target} attribute removed.
 }
+}
+
+\section{Authentication}{
+This package is capable of using an authenticated session to fetch the 2nd
+part of a puzzle after the user has answered the 1st part. For this to work,
+the user must supply their session cookie as an environment variable called
+\code{AOC_SESSION}.
+
+Please refer to the
+\href{https://github.com/clente/aor/blob/main/README.md}{README} for detailed
+instructions on how to find and set your session cookie.
+}
+

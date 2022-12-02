@@ -2,24 +2,18 @@
 % Please edit documentation in R/input.R
 \name{input_fetch}
 \alias{input_fetch}
-\title{Fetch the input of a puzzle from the Advent of Code}
+\title{Fetch an Advent of Code puzzle's input}
 \usage{
 input_fetch(date = Sys.Date())
 }
 \arguments{
 \item{date}{Day to fetch.}
 }
-\value{
-The input of the puzzle.
-}
 \description{
 Fetch the input of a puzzle from the Advent of Code given the day it was
 published. This function automatically reads the input line by line and
 writes it to the clipboard.
 }
-\section{Authentication}{
-This function needs the user's session cookie in order to work because the
-inputs vary from person to person. You must supply your session cookie as an
-environment variable called \code{AOC_SESSION}
+\seealso{
+\code{\link[=day_start]{day_start()}}
 }
-

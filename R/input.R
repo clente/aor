@@ -1,19 +1,12 @@
-#' Fetch the input of a puzzle from the Advent of Code
+#' Fetch an Advent of Code puzzle's input
 #'
 #' Fetch the input of a puzzle from the Advent of Code given the day it was
 #' published. This function automatically reads the input line by line and
 #' writes it to the clipboard.
 #'
-#' # Authentication
+#' @inheritParams day_start
 #'
-#' This function needs the user's session cookie in order to work because the
-#' inputs vary from person to person. You must supply your session cookie as an
-#' environment variable called `AOC_SESSION`
-#'
-#' @param date Day to fetch.
-#'
-#' @return The input of the puzzle.
-#'
+#' @seealso [day_start()]
 #' @export
 input_fetch <- function(date = Sys.Date()) {
 

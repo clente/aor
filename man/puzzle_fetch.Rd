@@ -2,32 +2,48 @@
 % Please edit documentation in R/puzzle.R
 \name{puzzle_fetch}
 \alias{puzzle_fetch}
-\title{Fetch a puzzle from the Advent of Code}
+\title{Fetch an Advent of Code puzzle}
 \usage{
 puzzle_fetch(part = 1, date = Sys.Date())
 }
 \arguments{
-\item{part}{Part to fetch (either 1 or 2). See Details for more information.}
+\item{part}{Part to fetch (either 1 or 2).}
 
 \item{date}{Day to fetch.}
-}
-\value{
-Text of the puzzle.
 }
 \description{
 Fetch (part of) a puzzle from the Advent of Code given the day it was
 published. This function automatically transforms the text of the puzzle into
 an R multi-line comment and writes it to the clipboard.
+
+See \strong{Details} for more information on how this package converts HTML into
+Markdown and how to sign in to your AoC account.
 }
-\section{Tooltips}{
-Hidden tooltips (which only show up on the website when one hovers over the
-text) are transformed into inline footnotes on the final output.
+\section{Conversion to Markdown}{
+Conversion from HTML to Markdown is made with \href{https://pandoc.org/}{Pandoc}.
+If you use RStudio, you most likely already have Pandoc installed; otherwise,
+make sure to install it before using this function.
+
+Pandoc is really good, but it's not perfect. I have chosen to, therefore,
+implement a few aspects of the conversion manually:
+\itemize{
+\item Hidden tooltips (which only show up on the website when one hovers over the
+text) are converted into inline footnotes on the final output.
+\item URLs that link to external sites have their \code{target} attribute removed.
+}
 }
 
 \section{Authentication}{
-This function is capable of using an authenticated session to fetch the 2nd
+This package is capable of using an authenticated session to fetch the 2nd
 part of a puzzle after the user has answered the 1st part. For this to work,
 the user must supply their session cookie as an environment variable called
 \code{AOC_SESSION}.
+
+Please refer to the
+\href{https://github.com/clente/aor/blob/main/README.md}{README} for detailed
+instructions on how to find and set your session cookie.
 }
 
+\seealso{
+\code{\link[=day_start]{day_start()}}
+}

@@ -1,12 +1,11 @@
-#' Fetch the title of a puzzle from the Advent of Code
+#' Fetch an Advent of Code puzzle's title
 #'
 #' Fetch the title of a puzzle from the Advent of Code given the day it was
-#' published.
+#' published. This function automatically writes the title to the clipboard.
 #'
-#' @param date Day to fetch.
+#' @inheritParams day_start
 #'
-#' @return A character string.
-#'
+#' @seealso [day_start()]
 #' @export
 title_fetch <- function(date = Sys.Date()) {
 
