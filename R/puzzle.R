@@ -81,10 +81,10 @@ puzzle_fetch_text <- function(part, date) {
 
   # Format text
   temp |>
-    stringr::str_c("cat ", ... = _) |>
+    stringr::str_c("cat ", ... = "_") |>
     stringr::str_c(" | pandoc --from html --to markdown_strict") |>
     base::system(intern = TRUE) |>
-    stringr::str_c("# ", ... = _) |>
+    stringr::str_c("# ", ... = "_") |>
     stringr::str_replace("## ---", "---") |>
     stringr::str_remove(" $") |>
     stringr::str_replace_all("\\\\\\[", "[") |>

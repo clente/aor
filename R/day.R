@@ -35,7 +35,7 @@ day_start <- function(date = Sys.Date(), path = "./") {
     lubridate::day() |>
     stringr::str_pad(width = 2, pad = "0") |>
     stringr::str_c("_", title, "/") |>
-    fs::path(path, ... = _) |>
+    fs::path(path, ... = "_") |>
     fs::path_norm() |>
     fs::dir_create()
 
