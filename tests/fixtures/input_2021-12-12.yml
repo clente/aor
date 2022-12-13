@@ -1,0 +1,53 @@
+http_interactions:
+- request:
+    method: get
+    uri: https://adventofcode.com/2021/day/12/input
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      date: Tue, 13 Dec 2022 17:02:24 GMT
+      content-type: text/plain
+      content-length: '120'
+      server: Apache
+      server-ip: 172.31.61.174
+      vary: Accept-Encoding
+      content-encoding: gzip
+      strict-transport-security: max-age=300
+    body:
+      encoding: ''
+      file: no
+      string: |
+        xz-end
+        CJ-pt
+        pt-QW
+        hn-SP
+        pw-CJ
+        SP-end
+        hn-pt
+        GK-nj
+        fe-nj
+        CJ-nj
+        hn-ZZ
+        hn-start
+        hn-fe
+        ZZ-fe
+        SP-nj
+        SP-xz
+        ZZ-pt
+        nj-ZZ
+        start-ZZ
+        hn-GK
+        CJ-end
+        start-fe
+        CJ-xz
+  recorded_at: 2022-12-13 17:02:24 GMT
+  recorded_with: vcr/1.2.0, webmockr/0.8.2
