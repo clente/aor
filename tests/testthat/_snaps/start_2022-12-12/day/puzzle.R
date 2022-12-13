@@ -1,9 +1,8 @@
 # --- Day 12: Hill Climbing Algorithm ---
 #
-# You try contacting the Elves using your <span
-# title="When you look up the specs for your handheld device, every field just says &quot;plot&quot;.">handheld
-# device</span>, but the river you're following must be too low to get a
-# decent signal.
+# You try contacting the Elves using your handheld device^[When you look
+# up the specs for your handheld device, every field just says "plot".],
+# but the river you're following must be too low to get a decent signal.
 #
 # You ask the device for a heightmap of the surrounding area (your puzzle
 # input). The heightmap shows the local area from above broken into a
