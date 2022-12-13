@@ -7,7 +7,7 @@
 \usage{
 day_start(date = Sys.Date(), path = "./", verbose = TRUE)
 
-day_continue(date = Sys.Date(), file, verbose = TRUE)
+day_continue(date, file, verbose = TRUE)
 }
 \arguments{
 \item{date}{Day to fetch.}

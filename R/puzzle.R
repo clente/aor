@@ -39,24 +39,10 @@ puzzle_fetch <- function(part = 1, date = Sys.Date(), verbose = TRUE) {
 #' @noRd
 puzzle_fetch_text <- function(part, date) {
 
-  # Stop if the part is invalid
-  if (!part %in% c(1, 2)) {
-    stop("Invalid part.")
-  }
-
-  # Stop if the date is invalid
-  if (lubridate::month(date) != 12 || lubridate::day(date) > 25) {
-    stop("Invalid date.")
-  }
-
-  # Stop if AOC_SESSION is needed but not provided
-  token <- Sys.getenv("AOC_SESSION", "")
-  if (part == 2 && token == "") {
-    stop(
-      "In order to fetch the 2nd part of a puzzle, you must ",
-      "supply your session cookie via the AOC_SESSION env var."
-    )
-  }
+  # Validation
+  part <- validate_part(part)
+  date <- validate_date(date)
+  token <- validate_token()
 
   # Temp file to write text to
   temp <- fs::file_temp(ext = "html")

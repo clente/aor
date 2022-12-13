@@ -39,10 +39,8 @@
 #' @export
 day_start <- function(date = Sys.Date(), path = "./", verbose = TRUE) {
 
-  # Stop if the date is invalid
-  if (lubridate::month(date) != 12 || lubridate::day(date) > 25) {
-    stop("Invalid date.")
-  }
+  # Validation
+  date <- validate_date(date)
 
   # Fetch puzzle
   puzzle <- puzzle_fetch_text(1, date)
@@ -92,21 +90,11 @@ day_start <- function(date = Sys.Date(), path = "./", verbose = TRUE) {
 #' @param file Path to `puzzle.R` file created by [day_start()]
 #'
 #' @export
-day_continue <- function(date = Sys.Date(), file, verbose = TRUE) {
+day_continue <- function(date, file, verbose = TRUE) {
 
-  # Stop if the date is invalid
-  if (lubridate::month(date) != 12 || lubridate::day(date) > 25) {
-    stop("Invalid date.")
-  }
-
-  # Stop if AOC_SESSION is needed but not provided
-  token <- Sys.getenv("AOC_SESSION", "")
-  if (token == "") {
-    stop(
-      "In order to fetch the 2nd part of a puzzle, you must ",
-      "supply your session cookie via the AOC_SESSION env var."
-    )
-  }
+  # Validation
+  date <- validate_date(date)
+  token <- validate_token()
 
   # Fetch puzzle
   puzzle <- puzzle_fetch_text(2, date)

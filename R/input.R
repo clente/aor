@@ -31,19 +31,9 @@ input_fetch <- function(date = Sys.Date(), verbose = TRUE) {
 #' @noRd
 input_fetch_text <- function(date) {
 
-  # Stop if the date is invalid
-  if (lubridate::month(date) != 12 || lubridate::day(date) > 25) {
-    stop("Invalid date.")
-  }
-
-  # Stop if AOC_SESSION is not provided
-  token <- Sys.getenv("AOC_SESSION", "")
-  if (token == "") {
-    stop(
-      "In order to fetch the input of a puzzle, you must ",
-      "supply your session cookie via the AOC_SESSION env var."
-    )
-  }
+  # Validation
+  date <- validate_date(date)
+  token <- validate_token()
 
   # Fetch input
   "https://adventofcode.com/" |>
