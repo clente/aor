@@ -44,10 +44,6 @@ day_start <- function(date = Sys.Date(), path = "./", verbose = TRUE) {
     stop("Invalid date.")
   }
 
-  # Fetch title
-  title <- snakecase::to_snake_case(title_fetch_text(date))
-  if (verbose) cli::cli_alert_success("Fetched title.")
-
   # Fetch puzzle
   puzzle <- puzzle_fetch_text(1, date)
   if (verbose) cli::cli_alert_success("Fetched puzzle.")
@@ -55,6 +51,12 @@ day_start <- function(date = Sys.Date(), path = "./", verbose = TRUE) {
   # Fetch input
   input <- input_fetch_text(date)
   if (verbose) cli::cli_alert_success("Fetched input.")
+
+  # Parse title
+  title <- puzzle |>
+    utils::head(1) |>
+    stringr::str_extract("(?<=[0-9]{1,2}\\: ).*?(?= ---$)") |>
+    snakecase::to_snake_case()
 
   # Create directory
   dir <- date |>
