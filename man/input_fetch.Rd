@@ -4,10 +4,12 @@
 \alias{input_fetch}
 \title{Fetch an Advent of Code puzzle's input}
 \usage{
-input_fetch(date = Sys.Date())
+input_fetch(date = Sys.Date(), verbose = TRUE)
 }
 \arguments{
 \item{date}{Day to fetch.}
+
+\item{verbose}{Whether to display progress or not.}
 }
 \description{
 Fetch the input of a puzzle from the Advent of Code given the day it was

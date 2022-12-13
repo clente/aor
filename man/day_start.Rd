@@ -5,14 +5,16 @@
 \alias{day_continue}
 \title{Create template for an Advent of Code puzzle}
 \usage{
-day_start(date = Sys.Date(), path = "./")
+day_start(date = Sys.Date(), path = "./", verbose = TRUE)
 
-day_continue(date = Sys.Date(), file)
+day_continue(date = Sys.Date(), file, verbose = TRUE)
 }
 \arguments{
 \item{date}{Day to fetch.}
 
 \item{path}{Directory where to write the template.}
+
+\item{verbose}{Whether to display progress or not.}
 
 \item{file}{Path to \code{puzzle.R} file created by \code{\link[=day_start]{day_start()}}}
 }

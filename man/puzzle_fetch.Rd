@@ -4,12 +4,14 @@
 \alias{puzzle_fetch}
 \title{Fetch an Advent of Code puzzle}
 \usage{
-puzzle_fetch(part = 1, date = Sys.Date())
+puzzle_fetch(part = 1, date = Sys.Date(), verbose = TRUE)
 }
 \arguments{
 \item{part}{Part to fetch (either 1 or 2).}
 
 \item{date}{Day to fetch.}
+
+\item{verbose}{Whether to display progress or not.}
 }
 \description{
 Fetch (part of) a puzzle from the Advent of Code given the day it was

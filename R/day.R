@@ -34,9 +34,10 @@
 #'
 #' @param date Day to fetch.
 #' @param path Directory where to write the template.
+#' @param verbose Whether to display progress or not.
 #'
 #' @export
-day_start <- function(date = Sys.Date(), path = "./") {
+day_start <- function(date = Sys.Date(), path = "./", verbose = TRUE) {
 
   # Stop if the date is invalid
   if (lubridate::month(date) != 12 || lubridate::day(date) > 25) {
@@ -45,15 +46,15 @@ day_start <- function(date = Sys.Date(), path = "./") {
 
   # Fetch title
   title <- snakecase::to_snake_case(title_fetch_text(date))
-  cli::cli_alert_success("Fetched title.")
+  if (verbose) cli::cli_alert_success("Fetched title.")
 
   # Fetch puzzle
   puzzle <- puzzle_fetch_text(1, date)
-  cli::cli_alert_success("Fetched puzzle.")
+  if (verbose) cli::cli_alert_success("Fetched puzzle.")
 
   # Fetch input
   input <- input_fetch_text(date)
-  cli::cli_alert_success("Fetched input.")
+  if (verbose) cli::cli_alert_success("Fetched input.")
 
   # Create directory
   dir <- date |>
@@ -89,7 +90,7 @@ day_start <- function(date = Sys.Date(), path = "./") {
 #' @param file Path to `puzzle.R` file created by [day_start()]
 #'
 #' @export
-day_continue <- function(date = Sys.Date(), file) {
+day_continue <- function(date = Sys.Date(), file, verbose = TRUE) {
 
   # Stop if the date is invalid
   if (lubridate::month(date) != 12 || lubridate::day(date) > 25) {
@@ -107,7 +108,7 @@ day_continue <- function(date = Sys.Date(), file) {
 
   # Fetch puzzle
   puzzle <- puzzle_fetch_text(2, date)
-  cli::cli_alert_success("Fetched puzzle.")
+  if (verbose) cli::cli_alert_success("Fetched puzzle.")
 
   # Append 2nd part to file
   puzzle <- c("", puzzle)

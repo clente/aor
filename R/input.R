@@ -8,18 +8,20 @@
 #'
 #' @seealso [day_start()]
 #' @export
-input_fetch <- function(date = Sys.Date()) {
+input_fetch <- function(date = Sys.Date(), verbose = TRUE) {
 
   # Fetch text as a character string
   input <- input_fetch_text(date)
 
   # Show output to user
-  cat(input, sep = "\n")
-  cat("\n")
+  if (verbose) {
+    cat(input, sep = "\n")
+    cat("\n")
+  }
 
   # Write output to clipboard
-  clipr::write_clip(input)
-  cli::cli_alert_success("Input is on the clipboard.")
+  if (interactive()) clipr::write_clip(input)
+  if (verbose) cli::cli_alert_success("Input is on the clipboard.")
 
   invisible(input)
 }

@@ -22,7 +22,7 @@ title_fetch <- function(date = Sys.Date()) {
   cat("\n")
 
   # Write output to clipboard
-  clipr::write_clip(title)
+  if (interactive()) clipr::write_clip(title)
   cli::cli_alert_success("Title is on the clipboard.")
 
   invisible(title)

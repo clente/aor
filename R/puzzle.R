@@ -16,18 +16,20 @@
 #'
 #' @seealso [day_start()]
 #' @export
-puzzle_fetch <- function(part = 1, date = Sys.Date()) {
+puzzle_fetch <- function(part = 1, date = Sys.Date(), verbose = TRUE) {
 
   # Fetch text as a character string
   puzzle <- puzzle_fetch_text(part, date)
 
   # Show output to user
-  cat(puzzle, sep = "\n")
-  cat("\n")
+  if (verbose) {
+    cat(puzzle, sep = "\n")
+    cat("\n")
+  }
 
   # Write output to clipboard
-  clipr::write_clip(puzzle)
-  cli::cli_alert_success("Puzzle is on the clipboard.")
+  if (interactive()) clipr::write_clip(puzzle)
+  if (verbose) cli::cli_alert_success("Puzzle is on the clipboard.")
 
   invisible(puzzle)
 }
