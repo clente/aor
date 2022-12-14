@@ -6,10 +6,10 @@ output: github_document
 
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
-  collapse = TRUE,
-  comment = "#>",
-  fig.path = "man/figures/README-",
-  out.width = "100%"
+ collapse = TRUE,
+ comment = "#>",
+ fig.path = "man/figures/README-",
+ out.width = "100%"
 )
 ```
 
@@ -89,12 +89,12 @@ omitting most of the question so that the output is not super long):
 ```{r, results='asis', echo=FALSE}
 txt <- readr::read_lines("aoc2022/01_calorie_counting/puzzle.R")
 cat(stringr::str_c(
-  "\`\`\`r",
-  stringr::str_c(txt[1:8], collapse = "\n"),
-  "# ...",
-  stringr::str_c(txt[63:71], collapse = "\n"),
-  "\`\`\`",
-  sep = "\n"
+ "\`\`\`r",
+ stringr::str_c(txt[1:8], collapse = "\n"),
+ "# ...",
+ stringr::str_c(txt[63:71], collapse = "\n"),
+ "\`\`\`",
+ sep = "\n"
 ))
 ```
 
@@ -105,20 +105,20 @@ to automatically fetch part 2 into the same file!
 aor::day_continue("2022-12-01", "aoc2022/01_calorie_counting/puzzle.R")
 ```
 
-And here is what the file looks like after runing `day_continue()` (again
+And here is what the file looks like after running `day_continue()` (again
 omitting most of the question):
 
 ```{r, results='asis', echo=FALSE}
 txt <- readr::read_lines("aoc2022/01_calorie_counting/puzzle.R")
 cat(stringr::str_c(
-  "\`\`\`r",
-  stringr::str_c(txt[1:8], collapse = "\n"),
-  "# ...",
-  stringr::str_c(txt[63:78], collapse = "\n"),
-  "# ...",
-  stringr::str_c(txt[88:90], collapse = "\n"),
-  "\`\`\`",
-  sep = "\n"
+ "\`\`\`r",
+ stringr::str_c(txt[1:8], collapse = "\n"),
+ "# ...",
+ stringr::str_c(txt[63:78], collapse = "\n"),
+ "# ...",
+ stringr::str_c(txt[88:90], collapse = "\n"),
+ "\`\`\`",
+ sep = "\n"
 ))
 ```
 
@@ -130,3 +130,19 @@ fs::dir_delete("aoc2022/")
 ```
 
 Good luck! See you on the other side!
+
+## Ethics
+
+The source code of the Advent of Code has a message for us:
+
+> _Please be careful with automated requests; I'm not a massive company, and I
+> can only take so much traffic. Please be considerate so that everyone gets to
+> play._
+
+With this in mind, aor makes **exactly** the same number of requests as a
+regular user would: one to get part 1 of the puzzle, one to get the input and
+one to get part 2. Even aor's unit tests are mocked!
+
+Having said this, please refrain from making spurious requests using aor;
+**don't** create bots, scrapers, or anything of the like. Thanks for your
+comprehension.

@@ -67,7 +67,6 @@ puzzle**, but I’ll use `2022-12-01` as the example here:
 ``` r
 # Start the puzzle for 2022-12-01 in the aoc2022/ directory
 aor::day_start("2022-12-01", "aoc2022/")
-#> ✔ Fetched title.
 #> ✔ Fetched puzzle.
 #> ✔ Fetched input.
 
@@ -112,7 +111,7 @@ aor::day_continue("2022-12-01", "aoc2022/01_calorie_counting/puzzle.R")
 #> ✔ Fetched puzzle.
 ```
 
-And here is what the file looks like after runing `day_continue()`
+And here is what the file looks like after running `day_continue()`
 (again omitting most of the question):
 
 ``` r
@@ -148,3 +147,19 @@ aor::day_continue("2022-12-01", "aoc2022/01_calorie_counting/puzzle.R")
 ```
 
 Good luck! See you on the other side!
+
+## Ethics
+
+The source code of the Advent of Code has a message for us:
+
+> *Please be careful with automated requests; I’m not a massive company,
+> and I can only take so much traffic. Please be considerate so that
+> everyone gets to play.*
+
+With this in mind, aor makes **exactly** the same number of requests as
+a regular user would: one to get part 1 of the puzzle, one to get the
+input and one to get part 2. Even aor’s unit tests are mocked!
+
+Having said this, please refrain from making spurious requests using
+aor; **don’t** create bots, scrapers, or anything of the like. Thanks
+for your comprehension.
