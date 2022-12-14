@@ -28,15 +28,15 @@ test_that("day_start() and day_continue() work", {
   puzzle <- fs::path(dir, "puzzle.R")
   input <- fs::path(dir, "input.txt")
 
-  testthat::expect_snapshot_file(puzzle, transform = scrub, variant = "start_2022-12-01")
-  testthat::expect_snapshot_file(input, transform = scrub, variant = "start_2022-12-01")
+  expect_snapshot_file(puzzle, transform = scrub, variant = "start_2022-12-01")
+  expect_snapshot_file(input, transform = scrub, variant = "start_2022-12-01")
 
   # Continue sample day
   vcr::use_cassette("continue_2022-12-01", {
     day_continue("2022-12-01", puzzle, verbose = FALSE)
   })
 
-  testthat::expect_snapshot_file(puzzle, transform = scrub, variant = "continue_2022-12-01")
+  expect_snapshot_file(puzzle, transform = scrub, variant = "continue_2022-12-01")
 
   # Fetch sample day
   vcr::use_cassette("start_2022-12-12", {
@@ -46,14 +46,14 @@ test_that("day_start() and day_continue() work", {
   puzzle <- fs::path(dir, "puzzle.R")
   input <- fs::path(dir, "input.txt")
 
-  testthat::expect_snapshot_file(puzzle, transform = scrub, variant = "start_2022-12-12")
-  testthat::expect_snapshot_file(input, transform = scrub, variant = "start_2022-12-12")
+  expect_snapshot_file(puzzle, transform = scrub, variant = "start_2022-12-12")
+  expect_snapshot_file(input, transform = scrub, variant = "start_2022-12-12")
 
   # Continue sample day
   vcr::use_cassette("continue_2022-12-12", {
     day_continue("2022-12-12", puzzle, verbose = FALSE)
   })
 
-  testthat::expect_snapshot_file(puzzle, transform = scrub, variant = "continue_2022-12-12")
+  expect_snapshot_file(puzzle, transform = scrub, variant = "continue_2022-12-12")
 
 })
