@@ -7,8 +7,8 @@ validate_part <- function(part) {
 
   if (!part %in% c(1, 2)) {
     cli::cli_abort(c(
-      "Supplied `part` is invalid",
-      i = "Part must be equal to either 1 or 2"
+      "Supplied {.field part} is invalid.",
+      i = "Part must be equal to either 1 or 2."
     ))
   }
 
@@ -28,8 +28,8 @@ validate_date <- function(date) {
 
   if (day || month || year) {
     cli::cli_abort(c(
-      "Supplied `date` is invalid",
-      i = "Date must be between Dec. 1st and Dec. 25th, starting in 2015"
+      "Supplied {.field date} is invalid.",
+      i = "Date must be between Dec. 1st and Dec. 25th, starting in 2015."
     ))
   }
 
@@ -45,8 +45,8 @@ validate_token <- function() {
 
   if (token == "") {
     cli::cli_abort(c(
-      "`AOC_SESSION` is invalid, unable to authenticate",
-      i = "See 'https://github.com/clente/aor#authentication' to learn more"
+      "{.envvar AOC_SESSION} is invalid, unable to authenticate.",
+      i = "See {.url https://github.com/clente/aor#authentication} to learn more."
     ))
   }
 

@@ -65,23 +65,31 @@ day_start <- function(date = Sys.Date(), path = "./", verbose = TRUE) {
     fs::path_norm() |>
     fs::dir_create()
 
+  if (verbose) cli::cli_alert_success("Created directory {.file {dir}}")
+
   # Files
   f_puzzle <- fs::path(dir, "puzzle", ext = "R")
   f_input <- fs::path(dir, "input", ext = "txt")
 
   # Append instructions
+  cmd <- stringr::str_glue('aor::day_continue("{date}", "{f_puzzle}")')
   puzzle <- c(
     puzzle,
     "",
     "# Your input can be found on the file below:",
-    stringr::str_c('input <- "', f_input, '"'),
+    stringr::str_glue('input <- "{f_input}"'),
     "",
     "# Once you're done with part 1, run the following line to fetch part 2:",
-    stringr::str_c('aor::day_continue("', as.character(date), '", "', f_puzzle, '")')
+    cmd
   )
 
   readr::write_lines(puzzle, f_puzzle)
+  if (verbose) cli::cli_alert_success("Wrote part 1 to {.file {f_puzzle}}")
+
   readr::write_lines(input, f_input)
+  if (verbose) cli::cli_alert_success("Wrote input to {.file {f_input}}")
+
+  if (verbose) cli::cli_alert_info("To fetch part 2, run {.code {cmd}}")
 
   invisible(dir)
 }
@@ -103,6 +111,7 @@ day_continue <- function(date, file, verbose = TRUE) {
   # Append 2nd part to file
   puzzle <- c("", puzzle)
   readr::write_lines(puzzle, file, append = TRUE)
+  if (verbose) cli::cli_alert_success("Wrote part 2 to {.file {file}}")
 
   invisible(file)
 }

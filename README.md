@@ -17,7 +17,7 @@ fetch puzzles and inputs as quickly as possible.
 ## Installation
 
 You can install the development version of aor from
-[GitHub](https://github.com/) with:
+[GitHub](https://github.com/clente/aor) with:
 
 ``` r
 # install.packages("devtools")
@@ -69,6 +69,10 @@ puzzle**, but I’ll use `2022-12-01` as the example here:
 aor::day_start("2022-12-01", "aoc2022/")
 #> ✔ Fetched puzzle.
 #> ✔ Fetched input.
+#> ✔ Created directory 'aoc2022/01_calorie_counting'
+#> ✔ Wrote part 1 to 'aoc2022/01_calorie_counting/puzzle.R'
+#> ✔ Wrote input to 'aoc2022/01_calorie_counting/input.txt'
+#> ℹ To fetch part 2, run `aor::day_continue("2022-12-01", "aoc2022/01_calorie_counting/puzzle.R")`
 
 # Files created
 fs::dir_tree("aoc2022/")
@@ -109,6 +113,7 @@ template to automatically fetch part 2 into the same file!
 ``` r
 aor::day_continue("2022-12-01", "aoc2022/01_calorie_counting/puzzle.R")
 #> ✔ Fetched puzzle.
+#> ✔ Wrote part 2 to 'aoc2022/01_calorie_counting/puzzle.R'
 ```
 
 And here is what the file looks like after running `day_continue()`

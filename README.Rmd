@@ -26,7 +26,8 @@ puzzles and inputs as quickly as possible.
 
 ## Installation
 
-You can install the development version of aor from [GitHub](https://github.com/) with:
+You can install the development version of aor from
+[GitHub](https://github.com/clente/aor) with:
 
 ``` r
 # install.packages("devtools")
