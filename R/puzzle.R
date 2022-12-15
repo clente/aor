@@ -43,6 +43,7 @@ puzzle_fetch_text <- function(part, date) {
   part <- validate_part(part)
   date <- validate_date(date)
   token <- validate_token()
+  validate_pandoc()
 
   # Temp file to write text to
   temp <- fs::file_temp(ext = "html")

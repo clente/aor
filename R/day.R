@@ -10,8 +10,8 @@
 #'
 #' # Conversion to Markdown
 #'
-#' Conversion from HTML to Markdown is made with [Pandoc](https://pandoc.org/).
-#' If you use RStudio, you most likely already have Pandoc installed; otherwise,
+#' Conversion from HTML to Markdown is made with [pandoc](https://pandoc.org/).
+#' If you use RStudio, you most likely already have pandoc installed; otherwise,
 #' make sure to install it before using this function.
 #'
 #' Pandoc is really good, but it's not perfect. I have chosen to, therefore,

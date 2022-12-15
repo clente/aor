@@ -27,8 +27,8 @@ See \strong{Details} for more information on how this package converts HTML to
 Markdown and how to sign in to your AoC account.
 }
 \section{Conversion to Markdown}{
-Conversion from HTML to Markdown is made with \href{https://pandoc.org/}{Pandoc}.
-If you use RStudio, you most likely already have Pandoc installed; otherwise,
+Conversion from HTML to Markdown is made with \href{https://pandoc.org/}{pandoc}.
+If you use RStudio, you most likely already have pandoc installed; otherwise,
 make sure to install it before using this function.
 
 Pandoc is really good, but it's not perfect. I have chosen to, therefore,

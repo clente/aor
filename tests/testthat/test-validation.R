@@ -28,11 +28,11 @@ test_that("validate_date() works", {
 test_that("validate_token() works", {
   withr::with_envvar(c("AOC_SESSION" = ""), {
 
-    expect_error(day_continue("2022-12-01", ""), "`AOC_SESSION` is invalid")
+    expect_error(day_continue("2022-12-01", ""), "Unable to authenticate")
 
-    expect_error(input_fetch("2022-12-01"), "`AOC_SESSION` is invalid")
+    expect_error(input_fetch("2022-12-01"), "Unable to authenticate")
 
-    expect_error(puzzle_fetch(1, "2022-12-01"), "`AOC_SESSION` is invalid")
+    expect_error(puzzle_fetch(1, "2022-12-01"), "Unable to authenticate")
 
   })
 })

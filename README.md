@@ -24,6 +24,10 @@ You can install the development version of aor from
 devtools::install_github("clente/aor")
 ```
 
+aor also calls [pandoc](https://pandoc.org/) internally. If you don’t
+use RStudio, you might have to install pandoc manually before using this
+package.
+
 ## Authentication
 
 Before using aor, you’ll probably want to save your Advent of Code

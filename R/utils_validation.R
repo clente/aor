@@ -45,10 +45,27 @@ validate_token <- function() {
 
   if (token == "") {
     cli::cli_abort(c(
-      "{.envvar AOC_SESSION} is invalid, unable to authenticate.",
+      "Unable to authenticate: {.envvar AOC_SESSION} is invalid.",
       i = "See {.url https://github.com/clente/aor#authentication} to learn more."
     ))
   }
 
   return(token)
+}
+
+#' Check if pandoc is installed
+#'
+#' @noRd
+validate_pandoc <- function() {
+
+  version <- system("pandoc --version", intern = TRUE)[1]
+
+  if (!stringr::str_detect(version, "^pandoc [0-9\\.]+$")) {
+    cli::cli_abort(c(
+      "Unable to find pandoc.",
+      i = "See {.url https://pandoc.org/installing.html} to learn more."
+    ))
+  }
+
+  return(version)
 }
